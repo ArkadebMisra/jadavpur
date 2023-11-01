@@ -38,5 +38,80 @@
 
 
 
+int fib();
 #include <stdio.h>
 
+int main(){
+    int exit = 1;
+    do{
+        int choice;
+        char trapEnter;
+        printf("Enter your choice\n"
+                "1. display the first ten numbers in the Fibonacci series.\n"
+                "2. display n square numbers\n"
+                "3. display all the armstrong number in the range 1 to 500\n"
+                "4. count total number of duplicate elements in an array\n"
+                "5. generate all prime numbers below 100 and count them\n"
+                "6. display factors of all composite numbers below 20 in a tabuler form\n"
+                "7. exit\n");
+        scanf("%d%c",&choice,&trapEnter);
+        switch (choice)
+        {
+        case 1:
+            fib();
+            // printf("this feature is being implemented\n\n");
+            break;
+        
+        case 2:
+            printf("this feature is being implemented\n\n");
+            break;
+       
+        case 3:
+            printf("this feature is being implemented\n\n");
+            break;
+
+        case 4:
+            printf("this feature is being implemented\n\n");
+            break;
+
+        case 5:
+            printf("this feature is being implemented\n\n");
+            break;
+        
+        case 6:
+            printf("this feature is being implemented\n\n");
+            break;
+        
+        case 7:
+            exit = 0;
+            break;
+        
+        default:
+            printf("please Enter valid choice\n\n");
+        }
+                
+    }while(exit);
+    return 0;
+}
+
+int fib(){
+    printf("Printing first 10 fibonacci numbers\n\n");
+    int arr[10];
+    arr[0] = 0;
+    arr[1] = 1;
+    for(int i=0;i<10;i++){
+        if(i<=1){
+            printf("%d ", arr[i]);
+        }
+        else{
+            arr[i] = arr[i-1]+arr[i-2];
+            printf("%d ", arr[i]);
+        }
+    }
+    printf("\n\n");
+    return 0;
+}
+
+int armstrong(){
+    
+}
