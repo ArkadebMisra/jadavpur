@@ -38,8 +38,16 @@
 
 
 
-int fib();
+
 #include <stdio.h>
+#include<math.h>
+
+int fib();
+void armstrong();
+void perfectSquare();
+void countDuplicates();
+void prime();
+void composite();
 
 int main(){
     int exit = 1;
@@ -63,23 +71,28 @@ int main(){
             break;
         
         case 2:
-            printf("this feature is being implemented\n\n");
+            // printf("this feature is being implemented\n\n");
+            perfectSquare();
             break;
        
         case 3:
-            printf("this feature is being implemented\n\n");
+            // printf("this feature is being implemented\n\n");
+            armstrong();
             break;
 
         case 4:
-            printf("this feature is being implemented\n\n");
+            // printf("this feature is being implemented\n\n");
+            countDuplicates();
             break;
 
         case 5:
-            printf("this feature is being implemented\n\n");
+            // printf("this feature is being implemented\n\n");
+            prime();
             break;
         
         case 6:
-            printf("this feature is being implemented\n\n");
+            // printf("this feature is being implemented\n\n");
+            composite();
             break;
         
         case 7:
@@ -112,6 +125,157 @@ int fib(){
     return 0;
 }
 
-int armstrong(){
+ void perfectSquare(){
+    int n,i;
+    printf("\nEnter the numbers of term : ");
+    scanf("%d",&n);
+    printf("First %d perfect square expressed as the sum of consecutive odd numbers: \n",n);
+    for(i = 2; i <= n+1; i++){
+        int num = i;
+        int j = 1;
+        printf("%d = ",i*i);
+        while(num){
+            if(num==1)
+            printf("%d ",j);
+            else
+            printf("%d+",j);
+            j = j + 2;
+            num--;
+        }
+        printf("\n");
+    }
+}
+
+void armstrong(){
+    int low, high, number, originalNumber, r, count = 0, result = 0;
+    printf("Enter two numbers(intervals): ");
+    scanf("%d %d", &low, &high);
+    printf("Armstrong numbers between %d and %d are: ", low, high);
+
+    if (high < low) {
+        high += low;
+        low = high - low;
+        high -= low;
+    }
+   
+    for (number = low ; number <= high; ++number) {
+        originalNumber = number;
+
+    while (originalNumber != 0) {
+      originalNumber /= 10;
+      ++count;
+    }
+
+    originalNumber = number;
+
+    while (originalNumber != 0) {
+      r = originalNumber % 10;
+      result += pow(r, count);
+      originalNumber /= 10;
+    }
+
+    if (result == number) {
+      printf("%d ", number);
+    }
+    count = 0;
+    result = 0;
+  }
+}
+
+void countDuplicates()
+{
+    int n;
+    printf("Enter number of values:");
+    scanf("%d", &n);
+    int arr[1000];
+    int unique[1000];
+    int i=0, j=0, k=0, d=0;
+    printf("Input %d elements in the array :\n",n);
+        for(i=0;i<n;i++)
+        {
+              printf("element - %d : ",i);
+              scanf("%d",&arr[i]);
+        }
+        for(i = 0; i < n; i++){
+            for(j = 0; j < i; j++){
+                if(arr[i] == arr[j])
+                break;
+            }
+            if(i==j)
+            {
+                unique[k] = arr[i];
+                k++;
+            }
+        }
+        d = n - k;
+        printf("No of duplicate element is : %d \n",d);
+        for(i=k-1;i>=0;i--)
+        {
+              printf("%d ",unique[i]);
+        }
+        printf("\n");
+}
+
+void prime()
+{
+    int prime[100];
+    prime[0] = 2;
+    int i = 0, j = 0, count = 1, k = 0,fact = 1;
+    for(i = 3; i <= 100; i++)
+    {
+        k = 0;
+        for(j = 0; j < count; j++)
+        {
+           if(i%prime[j] == 0)
+           {
+               //printf("in 0");
+               k++;
+               break;
+           }
+        }
+       
+        if(k == 0)
+        {
+            prime[count] = i;
+            count++;
+        }
+        printf("\n");
+    }
+    printf("Total no of prime numbers: %d\n",count);
+     for(i = 0; i < count; i++)
+    {
+        printf("%d ", prime[i]);
+    }
     
+}
+void composite()
+{
+    int prime[100];
+    prime[0] = 2;
+    int i = 0, j = 0, count = 1, k = 0,fact = 1;
+    for(i = 3; i <= 20; i++)
+    {
+        k = 0;
+        for(j = 0; j < count; j++)
+        {
+           if(i%prime[j] == 0)
+           {
+               //printf("in 0");
+               k++;
+               printf("\nFactors of %d is: ",i);
+               for(fact=1; fact <i; fact++){
+                   if(i%fact == 0)
+                   printf("%d ",fact);
+               }
+               break;
+           }
+        }
+       
+        if(k == 0)
+        {
+            prime[count] = i;
+            count++;
+        }
+        
+    }
 }
