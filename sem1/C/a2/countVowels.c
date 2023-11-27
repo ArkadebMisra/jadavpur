@@ -11,6 +11,7 @@ void count(char str[], int *v, int *c){
             (*v)++;
 
         }
+        else if(str[i] == ' '){}
         else{
             (*c)++;
         }

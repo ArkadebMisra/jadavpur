@@ -1,5 +1,5 @@
-// 0 1 2 3 4 5
-// 1 0 3 2 5 4
+// 0 1 2 3 4 
+// 1 0 3 2 5 
 
 // 0 1 2 3
 // 1 0 3 2
@@ -9,21 +9,10 @@
 
 void swapPos(int arr[], int n){
 
-    int in[100];
-    int j=0;
-    for(int i=1;i<n;i=i+2){
-        in[j] = arr[i];
-        // printf("%d %d\n", j, i);
-        j+=2;
-    }
-    j=1;
-    for(int i=0;i<n;i=i+2){
-        in[j] = arr[i];
-        j+=2;
-    }
-
-    for(int i=0;i<n;i++){
-        arr[i] = in[i];
+    for(int i=0;i<n-1;i=i+2){
+        int temp = arr[i+1];
+        arr[i+1] = arr[i];
+        arr[i] = temp;
     }
 }
 void printArray(int arr[], int n){
