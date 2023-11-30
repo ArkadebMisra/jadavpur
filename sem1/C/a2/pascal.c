@@ -1,7 +1,10 @@
 #include<stdio.h>
 
 void pascalTriangle(n){
-    for(int i=1;i<=n;i++){
+    int row[100];
+    row[0] = 0;
+    row[0] = row[1] = 1;
+    for(int i=0;i<10;i++){
 
     }
 }

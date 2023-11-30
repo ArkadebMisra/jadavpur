@@ -33,6 +33,30 @@ void my_strcat(char* destination, const char* source)
     *ptr = '\0';
 }
 
+int my_strcmp(const char *X, const char *Y){
+    while (*X)
+    {
+        if (*X != *Y) {
+            break;
+        }
+        X++;
+        Y++;
+    }
+ 
+    return *(const unsigned char*)X - *(const unsigned char*)Y;
+}
+
+void my_strrev(char *str){
+   char temp;
+   int i,length;
+   length=my_strlen(str)-1;
+   for(i=0;i<my_strlen(str)/2;i++){
+      temp=str[i];
+      str[i]=str[length];
+      str[length--]=temp;
+   }
+}
+
 int main(){
     int ch;
     char str1[500];
@@ -54,13 +78,13 @@ int main(){
         {
         case 1:
             printf("Enter a string\n");
-            scanf("%[^\n]s%*c", str1);
+            scanf("%[^\n]%*c", str1);
             printf("The length of the string is %d     <========\n", my_strlen(str1));
             break;
 
         case 2:
             printf("Enter a string to store it in variable str1\n");
-            scanf("%[^\n]s%*c", str1);
+            scanf("%[^\n]%*c", str1);
             printf("copying the string to variable str2 from str1\n");
             my_strcpy(str2, str1);
             printf("The string stored in str2 is %s     <========\n", str2);
@@ -70,13 +94,36 @@ int main(){
             printf("Enter 1st string\n");
             scanf("%[^\n]%*c", str1);
 
-            // fflush(stdin);
             printf("Enter 2nd string\n");
             scanf("%[^\n]%*c", str2);
 
             my_strcat(str1, str2);
             printf("The concatenated string is %s     <========\n", str1);
             break;
+
+        case 4:
+            printf("Enter a string\n");
+            scanf("%[^\n]%*c", str1);
+            my_strrev(str1);
+            printf("The reversed string is %s     <========\n", str1);
+            break;
+
+        case 5:
+            printf("Enter two strings to compare them\n");
+            printf("Enter 1st string\n");
+            scanf("%[^\n]%*c", str1);
+
+            printf("Enter 2nd string\n");
+            scanf("%[^\n]%*c", str2);
+
+            if(my_strcmp(str1, str2)==0){
+                printf("The strings are equal     <========\n");
+            }
+            else{
+                printf("The strings are not equal     <========\n");
+            }
+            break;
+
 
         case 6:
             run=0;
