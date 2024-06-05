@@ -4,7 +4,7 @@
 #include <sys/wait.h>
 
 #define NUM_CHILDREN 10
-#define RANGE_SIZE 100000
+#define RANGE_SIZE 100
 
 int is_prime(int n) {
     if (n <= 1)

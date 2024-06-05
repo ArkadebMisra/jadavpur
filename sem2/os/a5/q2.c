@@ -96,6 +96,7 @@ int main() {
     for (int i = 0; i < 3; i++) {
         wait(NULL);
     }
+    printf("\n");
 
     // Clean up semaphores
     semctl(sem_A, 0, IPC_RMID, 0);

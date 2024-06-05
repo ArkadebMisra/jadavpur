@@ -45,6 +45,7 @@ int main() {
     semctl(sem_E, 0, SETVAL, 0);
 
 
+    // int in =0;
     int idx=0; //index where to put the produced items
     while(1){
         int in;
@@ -60,6 +61,7 @@ int main() {
         printf("produced item %d\n", in);
         ptr[idx] = in;
         idx = (idx+1)%NUM_SLOTS;
+        in++;
 
         semop(sem_S, &V, 1);
         semop(sem_E, &V, 1);

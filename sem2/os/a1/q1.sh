@@ -14,6 +14,10 @@ echo "the perimeter of the rectangle is(caculated using expr)"
 perimeter=`expr 2 \* \( $l + $b \)`
 echo "peremeter $perimeter"
 
-# echo "the area of the rectangle is(caculated using bc)"
-# area=$(echo "$l * $b" | bc)
-# echo "area $area"
+echo "the area of the rectangle is(caculated using bc)"
+area=$(echo "$l * $b" | bc)
+echo "area $area"
+
+echo "the peremeter of the rectangle is(caculated using bc)"
+area=$(echo "2*($l + $b)" | bc)
+echo "perimeter $area"
