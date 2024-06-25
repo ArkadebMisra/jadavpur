@@ -35,33 +35,38 @@
 #---------------------------------------------
 
 
+# Lists of students, subjects, and their marks
 s = ["arka", "somosree", "sohini", "jaidip", "abu"]
-subjects = ["comp", "phy", "math"]
+subjects = ["computer science", "physics", "math"]
 marks = [[1, 2, 3, 4, 5], [5, 3, 2, 6, 2], [7, 9, 1, 2, 1]]
-# subjects = [sub[:] for i in range(len(sub))]
+
+# Create a list of students repeated for each subject
 students = [s[:] for i in range(len(subjects))]
-# print(subjects)
 
-
-
-
-
+# Define a function to find the highest 
+# mark in each subject and the corresponding student
 def func(ele):
-    s = ele[0]
-    st = ele[1]
-    m = ele[2]
-    highest = max(m)
-    idx=0
+    s = ele[0]  # Subject name
+    st = ele[1] # List of students
+    m = ele[2]  # Marks for the subject
+    highest = max(m)  # Find the highest mark
+    idx = 0  # Initialize index for the highest mark
     for i in range(len(m)):
-        if m[i]==highest:
-            idx=i
+        if m[i] == highest:
+            # Get the index of the highest mark
+            idx = i  
             break
-    return s, st[idx], m[idx]
-    
+    # Return the subject, student, and highest mark
+    return s, st[idx], m[idx]  
 
+# Use map and zip to apply the function 
+# to each subject, student list, and marks list
 a = map(func, zip(subjects, students, marks))
+
+# Print the results
 for e in a:
-    print(e)
+    print("in ", e[0], " ", e[1], " got highest marks ", e[2])
+
 
 # s = max([5, 10, 12])
 # print(s)

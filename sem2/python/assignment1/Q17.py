@@ -1,12 +1,5 @@
 #!/bin/python3
 
-import math
-import os
-import random
-import re
-import sys
-
-
 #!usr/bin/env python
 
 class PriorityQueue:
@@ -117,7 +110,11 @@ pq = PriorityQueue()
 pq.insert(10)
 pq.insert(5)
 pq.insert(2)
+pq.insert(16)
+pq.insert(3)
 
+print(pq.extract_min())
+print(pq.extract_min())
 print(pq.extract_min())
 # pq.decrease_key(10, 1)
 
